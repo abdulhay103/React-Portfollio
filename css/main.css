@@ -43,18 +43,53 @@ body {
   bottom: 20px;
   right: 30px;
   z-index: 99;
-  font-size: 20px;
-  border: none;
+  font-size: 25px;
   outline: none;
   background-color: #000000;
-  color: white;
+  color: #fff;
   cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  padding: 2px;
+  -webkit-animation: upArray 3s infinite;
+          animation: upArray 3s infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes upArray {
+  from {
+    bottom: 10px;
+  }
+  to {
+    bottom: 30px;
+    color: #803300;
+  }
+}
+
+@keyframes upArray {
+  from {
+    bottom: 10px;
+  }
+  to {
+    bottom: 30px;
+    color: #803300;
+  }
 }
 
 .contentBar #home {
   background-color: #0c0c0c;
   min-height: 100vh;
   margin: 5px;
+}
+
+.contentBar #home .banner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .contentBar #about {
