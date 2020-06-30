@@ -18,11 +18,9 @@ body {
 
 .sideBar {
   background-color: $secondar_background_color;
-  //   margin: $section_margin;
-  //   box-sizing: border-box;
-  //   margin-right: 0;
+  min-height: 100%;
   position: fixed;
-  overflow: hidden;
+  overflow-x: hidden;
 
   .logo p {
     letter-spacing: 8px;
