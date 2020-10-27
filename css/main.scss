@@ -38,6 +38,12 @@ body {
       }
     }
   }
+  .Sidebar_footer {
+    .social_Icons {
+      display: flex;
+      flex-wrap: nowrap;
+    }
+  }
 }
 
 .contentBar {
