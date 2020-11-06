@@ -5,12 +5,26 @@ $yellowTail: "Yellowtail", cursive;
 $background_color: #000000;
 $secondar_background_color: #262626;
 $text_color: #ffffff;
-$hover_color: #113d8e;
-$section_margin: 5px;
+$header_text_color: #1372ff;
 $T_card_width: 350px;
 $T_card_background: #333;
-$T_card_Layer_background1: $hover_color;
+$T_card_Layer_background1: $header_text_color;
 $T_card_Layer_background2: rgba(255, 136, 0, 0.938);
+
+// All Margin & Padding are available here
+$section_margin: 5px;
+$section_padding: 15px 0;
+
+// All Text Sizes are available here
+$header_font_size: 2.2rem;
+
+// Default Section Design
+@mixin section_design {
+  background-color: $secondar_background_color;
+  min-height: 300px;
+  margin: $section_margin;
+  padding: $section_padding;
+}
 
 body {
   //   cursor: none;
@@ -32,6 +46,10 @@ body {
     padding: 0;
     margin: 0;
   }
+  h2 {
+    color: $header_text_color;
+    padding: 10px 0;
+  }
 }
 
 .sideBar {
@@ -50,7 +68,7 @@ body {
     li {
       padding: 5px 0;
       &:hover {
-        background: $hover_color;
+        background: $header_text_color;
       }
 
       a {
@@ -102,7 +120,7 @@ body {
           letter-spacing: 2px;
           transition: 0.5;
           &:hover {
-            color: $hover_color;
+            color: $header_text_color;
           }
         }
       }
@@ -155,9 +173,8 @@ body {
   }
 
   #home {
-    background-color: $secondar_background_color;
+    @include section_design;
     min-height: 100vh;
-    margin: $section_margin;
 
     .banner {
       position: absolute;
@@ -169,21 +186,15 @@ body {
   }
 
   #about {
-    background-color: $secondar_background_color;
-    min-height: 300px;
-    margin: $section_margin;
+    @include section_design;
   }
 
   #services {
-    background-color: $secondar_background_color;
-    min-height: 200px;
-    margin: $section_margin;
+    @include section_design;
   }
 
   #contact {
-    background-color: $secondar_background_color;
-    min-height: 200px;
-    margin: $section_margin;
+    @include section_design;
     iframe {
       width: 100%;
       height: 100%;
@@ -191,60 +202,74 @@ body {
   }
 
   #testimonials {
-    // padding: 10px;
-    background-color: $secondar_background_color;
-    min-height: 250px;
-    margin: $section_margin;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax($T_card_width, 1fr));
-    gap: 15px;
-
-    .T_card {
-      position: relative;
-      width: $T_card_width;
-      margin: 0 auto;
-      background: $T_card_background;
-      padding: 20px;
-      box-sizing: border-box;
+    @include section_design;
+    h2 {
+      color: $header_text_color;
       text-align: center;
-      box-shadow: 0 10px 40px rgb(0, 0, 0);
-      overflow: hidden;
-      &:hover {
-        .layer {
-          top: 0;
-        }
-      }
+    }
+    .card_area {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax($T_card_width, 1fr));
+      gap: 15px;
 
-      .layer {
-        position: absolute;
-        top: calc(100% - 3px);
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          $T_card_Layer_background1,
-          $T_card_Layer_background2
-        );
-        z-index: 1;
-        transition: 0.5s;
-      }
-
-      .content {
+      .T_card {
         position: relative;
-        z-index: 2;
+        width: $T_card_width;
+        margin: 0 auto;
+        background: $T_card_background;
+        padding: 20px;
+        box-sizing: border-box;
+        text-align: center;
+        box-shadow: 0 10px 40px rgb(0, 0, 0);
+        overflow: hidden;
+        &:hover {
+          .layer {
+            top: 0;
+          }
+        }
+
+        .layer {
+          position: absolute;
+          top: calc(100% - 3px);
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            $T_card_Layer_background1,
+            $T_card_Layer_background2
+          );
+          z-index: 1;
+          transition: 0.5s;
+        }
+
+        .content {
+          position: relative;
+          z-index: 2;
+
+          .image {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            border-radius: 50%;
+            border: 3px solid $T_card_Layer_background1;
+            box-shadow: 0 10px 20px rgb(0, 0, 0);
+            overflow: hidden;
+            img {
+              width: 100%;
+            }
+          }
+        }
       }
     }
   }
 
-  #portfolio {
-    background-color: $secondar_background_color;
+  #portfollio {
+    @include section_design;
     min-height: 200px;
-    margin: $section_margin;
   }
 
   #footer {
-    background-color: $secondar_background_color;
+    @include section_design;
     min-height: 100px;
-    margin: $section_margin;
   }
 }
