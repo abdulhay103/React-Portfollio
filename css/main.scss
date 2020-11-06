@@ -7,7 +7,8 @@ $secondar_background_color: #262626;
 $text_color: rgb(255, 255, 255);
 $header_text_color: #1372ff;
 $T_card_width: 350px;
-$T_card_background: #333;
+// $T_card_background: #333;
+$T_card_background: transparent;
 $T_card_Layer_background1: $header_text_color;
 $T_card_Layer_background2: rgba(255, 136, 0, 0.938);
 
@@ -26,6 +27,28 @@ $header_font_size: 2.2rem;
   padding: $section_padding;
 }
 
+// Default Card Design
+
+$card_width: 250px;
+.card_holder {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($card_width, 1fr));
+  gap: 15px;
+  .card {
+    background: $T_card_background;
+    text-align: center;
+    box-sizing: border-box;
+    box-shadow: 0 10px 40px rgb(0, 0, 0);
+    display: block;
+
+    .card_image {
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
 body {
   //   cursor: none;
   font-size: 15px;
@@ -47,12 +70,14 @@ body {
     margin: 0;
   }
   h2 {
-    color: $header_text_color;
-    padding: 10px 0;
     text-align: center;
+    padding: 15px 0;
+    color: $header_text_color;
+    text-shadow: 0 10px 20px rgb(0, 0, 0);
   }
 }
 
+// Main SideBar Design
 .sideBar {
   background-color: $secondar_background_color;
   min-height: 100%;
@@ -86,6 +111,7 @@ body {
     }
   }
 
+  // SideBar Menu Design
   .sidebar_menu {
     .profile {
       padding-top: 15px;
@@ -104,7 +130,7 @@ body {
       }
     }
   }
-
+  // SideBar Footer Design
   .sidebar_footer {
     ul {
       display: flex;
@@ -127,6 +153,8 @@ body {
       }
     }
   }
+
+  // Footer Contact Design
   .fast_contact {
     h6 {
       span {
@@ -146,6 +174,7 @@ body {
 .contentBar {
   display: inline-block;
 
+  // Up Array Design
   #myBtn {
     display: none;
     position: fixed;
@@ -173,6 +202,7 @@ body {
     }
   }
 
+  // Home section Design
   #home {
     @include section_design;
     min-height: 100vh;
@@ -269,10 +299,26 @@ body {
   $flipBox_area: 250px;
   $flipBox_height: 300px;
   $flipBack_headerColor: #ffc107;
+
   #portfollio {
     @include section_design;
     min-height: 200px;
 
+    .group_btn {
+      text-align: center;
+      button {
+        padding: 0 15px;
+        margin: 0 15px 15px 0;
+        color: $header_text_color;
+        background: $T_card_background;
+        border: 1px solid $header_text_color;
+        box-shadow: 0 10px 20px rgb(0, 0, 0);
+        &:hover {
+          background: $header_text_color;
+          color: $text_color;
+        }
+      }
+    }
     .project_holder {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax($flipBox_area, 1fr));
