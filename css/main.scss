@@ -268,6 +268,7 @@ body {
 
   $flipBox_area: 250px;
   $flipBox_height: 300px;
+  $flipBack_headerColor: #ffc107;
   #portfollio {
     @include section_design;
     min-height: 200px;
@@ -281,7 +282,8 @@ body {
       background-color: transparent;
       width: 100%;
       height: $flipBox_height;
-      border: 1px solid $header_text_color;
+      box-shadow: 0 10px 40px rgb(0, 0, 0);
+      // border: 1px solid $header_text_color;
       perspective: 1000px;
       &:hover {
         .FlipBox_innerX {
@@ -303,7 +305,8 @@ body {
       }
 
       .FlipBox_front,
-      .FlipBox_back {
+      .FlipBox_back,
+      .FlipBox_backY {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -322,14 +325,37 @@ body {
         background: chartreuse;
         color: black;
       }
+
+      @mixin flipBack {
+        h2 {
+          background: $flipBack_headerColor;
+        }
+
+        p {
+          padding: 15px;
+          line-height: 20px;
+          text-align: left;
+        }
+        a {
+          position: absolute;
+          padding: 10px;
+          background: $header_text_color;
+          text-decoration: none;
+          color: $text_color;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+        }
+      }
       .FlipBox_back {
-        background: #ffc107;
-        color: white;
+        position: relative;
+        @include flipBack;
+        background: $T_card_background;
         transform: rotateX(180deg);
       }
       .FlipBox_backY {
-        background: blue;
-        color: white;
+        @include flipBack;
+        background: $T_card_background;
         transform: rotateY(180deg);
       }
     }
