@@ -4,7 +4,7 @@ $nato: "Noto Serif", serif;
 $yellowTail: "Yellowtail", cursive;
 $background_color: #000000;
 $secondar_background_color: #262626;
-$text_color: #ffffff;
+$text_color: rgb(255, 255, 255);
 $header_text_color: #1372ff;
 $T_card_width: 350px;
 $T_card_background: #333;
@@ -49,6 +49,7 @@ body {
   h2 {
     color: $header_text_color;
     padding: 10px 0;
+    text-align: center;
   }
 }
 
@@ -263,9 +264,75 @@ body {
     }
   }
 
+  // Design for portfolio section
+
+  $flipBox_area: 250px;
+  $flipBox_height: 300px;
   #portfollio {
     @include section_design;
     min-height: 200px;
+
+    .project_holder {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax($flipBox_area, 1fr));
+      gap: 10px;
+    }
+    .FlipBox {
+      background-color: transparent;
+      width: 100%;
+      height: $flipBox_height;
+      border: 1px solid $header_text_color;
+      perspective: 1000px;
+      &:hover {
+        .FlipBox_innerX {
+          transform: rotateX(180deg);
+        }
+        .FlipBox_innerY {
+          transform: rotateY(180deg);
+        }
+      }
+
+      .FlipBox_innerX,
+      .FlipBox_innerY {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+      }
+
+      .FlipBox_front,
+      .FlipBox_back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+      }
+
+      .FlipBox_front {
+        .FlipImage {
+          width: 100%;
+          height: 100%;
+          img {
+            width: 100%;
+          }
+        }
+        background: chartreuse;
+        color: black;
+      }
+      .FlipBox_back {
+        background: #ffc107;
+        color: white;
+        transform: rotateX(180deg);
+      }
+      .FlipBox_backY {
+        background: blue;
+        color: white;
+        transform: rotateY(180deg);
+      }
+    }
   }
 
   #footer {
