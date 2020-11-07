@@ -27,6 +27,16 @@ $header_font_size: 2.2rem;
   padding: $section_padding;
 }
 
+// Default Section Header Design
+.section_header {
+  text-align: center;
+  padding: 0 15px;
+  h2 {
+    color: $header_text_color;
+    text-shadow: 0 10px 20px rgb(0, 0, 0);
+  }
+}
+
 // Default Card Design
 
 $card_width: 250px;
@@ -39,14 +49,6 @@ $card_width: 250px;
     text-align: center;
     box-sizing: border-box;
     box-shadow: 0 10px 40px rgb(0, 0, 0);
-    display: block;
-
-    .card_image {
-      width: 100%;
-      img {
-        width: 100%;
-      }
-    }
   }
 }
 body {
@@ -68,12 +70,6 @@ body {
   input {
     padding: 0;
     margin: 0;
-  }
-  h2 {
-    text-align: center;
-    padding: 15px 0;
-    color: $header_text_color;
-    text-shadow: 0 10px 20px rgb(0, 0, 0);
   }
 }
 
@@ -222,6 +218,7 @@ body {
 
   #services {
     @include section_design;
+    @include Default_card;
   }
 
   #contact {
@@ -234,10 +231,6 @@ body {
 
   #testimonials {
     @include section_design;
-    h2 {
-      color: $header_text_color;
-      text-align: center;
-    }
     .card_area {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax($T_card_width, 1fr));
