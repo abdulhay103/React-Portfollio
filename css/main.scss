@@ -28,6 +28,11 @@ $header_font_size: 2.2rem;
 }
 
 // Default Card Design
+@mixin card_holder {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($card_width, 1fr));
+  gap: 15px;
+}
 
 $card_width: 250px;
 .card_holder {
